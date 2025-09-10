@@ -1,40 +1,62 @@
 #include <stdio.h>
+int main () 
+{
+    //Aqui declaro as minhas variáveis que vão decorrer por todo o meu tabuleiro
+    int xnavioh = 5;
+    int ynavioh = 2;
+    int xnaviov = 2;
+    int ynaviov = 7;
 
-// Desafio Batalha Naval - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
-// Siga os comentários para implementar cada parte do desafio.
 
-int main() {
-    // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
+    /*Aqui minha matriz com os valore 0 para Água/Mar (Fiz manualmente justamente para preencher as
+    guias de coordenadas dentro do proprio valor!)*/
+    char * tabuleiromar[10][10] = 
+        {   
+            {" 1 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0"},
+            {" 2 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0"},
+            {" 3 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0"},
+            {" 4 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0"},
+            {" 5 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0"},
+            {" 6 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0"},
+            {" 7 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0"},
+            {" 8 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0"},
+            {" 9 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0"},
+            {"10 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0", " 0"}
+        };
 
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
+    //Um vetor para as guias de coordenadas
+    char * letras[] = {"  ", " A", " B", " C", " D", " E", " F", " G", " H", " I", " J"};
 
-    // Nível Mestre - Habilidades Especiais com Matrizes
-    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
-    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
-    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas atingidas.
+        //Aqui os códigos para que na coordenada exata, os "0" se tornem "3"
+        for(int i = 0; i < 3 ; i++)
+        {
+            tabuleiromar[xnavioh][ynavioh + i] = " 3";
+        }
+        for(int i = 0; i < 3 ; i++)
+        {
+            tabuleiromar[xnaviov + i][ynaviov] = " 3";
+        }
 
-    // Exemplos de exibição das habilidades:
-    // Exemplo para habilidade em cone:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 1 1 1 1 1
+
     
-    // Exemplo para habilidade em octaedro:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 0 0 1 0 0
+    //Nessa parte criei esse loop para repetir todas os valore de "letras", que no caso são as guias    
+    for (int i = 0; i <11; i++)
+    {
+        printf("%s", letras[i]);
+    }
 
-    // Exemplo para habilidade em cruz:
-    // 0 0 1 0 0
-    // 1 1 1 1 1
-    // 0 0 1 0 0
-
-    return 0;
+    //Agora imprimiremos o tabuleiro, já modificado para ter navios
+    for(int y = 0; y < 10; y++)
+        {
+            printf("\n");
+                for (int x = 0; x < 10; x++)
+                {        
+                    printf("%s", tabuleiromar[y][x]);
+                }
+        }
+    
+    
 }
+
+
+    
