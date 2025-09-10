@@ -54,7 +54,6 @@ int main ()
                     printf("%s", tabuleiromar[y][x]);
                 }
         }
-    
 }
 
 
